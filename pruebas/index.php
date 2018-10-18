@@ -16,7 +16,7 @@
 </style>
 
 <body>
-<h1 style="text-align: center;">Pagina de prueba</h1>
+<h1 style="text-align: center;">Pagina de 2</h1>
 <?php
 	
 
@@ -204,7 +204,7 @@
 
 	mysqli_set_charset($conexion, "utf-8");
 	$consulta = "SELECT * FROM USUARIO";
-
+	
 	//Hacemos la consulta
 	$resultados = mysqli_query($conexion, $consulta);
 
@@ -214,10 +214,10 @@
 		}
 		echo "<br>";
 	}
-
+	
 	
 
 ?>
-	
+
 </body>
 </html>
