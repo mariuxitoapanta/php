@@ -12,10 +12,9 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    include("header.php");
+<?php 
+    include('headerSinLogear.php');
 ?>
-
 <section>
     <div class="split-foto izq-foto">
         <div class="margin_info_foto">
@@ -37,8 +36,19 @@
             <div><i style="margin-right: 2%;" class="fa fa-user fa-lg"></i><span>Usuario</span></div>
         </div>
     </div>
-    <div class="split-foto dcha-foto">
-    </div>
+
+    <?php 
+
+        if(isset($_GET['foto']) && $_GET['foto']==1){
+            
+            echo '<div class="split-foto dcha-foto"></div>';
+        }else if(isset($_GET['foto']) && $_GET['foto']==2){
+
+            echo '<div class="split-foto dcha-foto2"></div>';
+            
+        }
+    ?>
+    
 </section>
 </body>
 </html>

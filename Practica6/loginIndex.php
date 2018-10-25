@@ -3,16 +3,16 @@
     
 	echo '<div id="background-index-top" class="background_parallax">
     <section class="col-4 margin_auto padding20">
+        
         <h2 class="white text_shadow">Iniciar sesión</h2>
-        <form method="POST" action="controlAcceso.php">
-            
+        <form  action = "acceso.php" method = "post">
             <label class="label_blanco text_shadow" for="usuario">Nombre de usuario</label>
-            <input type="text" placeholder="Introduce tu usuario" name="nombreUsuario" required>
+            <input type="text" name="usuario" placeholder="Introduce tu usuario" required>
             <br><br>
             <label class="label_blanco text_shadow" for="pass">Contraseña</label>
-            <input id="input_pass_login" type="password" placeholder="Introduce tu password" name="pass" required>
+            <input id="input_pass_login" name="password" type="password" placeholder="Introduce tu password" required>
 
-            <button type="submit" style="cursor:pointer;" name="submit">Iniciar sesión</button>
+            <button type="submit" style="cursor:pointer;">Iniciar sesión</button>
             <div class="row">
 
                 <div style="width:30%;">
@@ -28,8 +28,6 @@
             </div>
 
         </form>
-
-        
     </section>
 </div>';
 

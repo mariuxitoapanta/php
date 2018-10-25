@@ -12,28 +12,34 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    include("header.php");
+<?php 
+    include('header.php');
 ?>
+
 <section>
     <div class="split-menu izq-menu">
 
     </div>
     <div id="background-menu" class="split-menu dcha-menu">
         <div class="margin_menu">
-            <h2 style="text-align: left" class="white text_shadow">Menú de usuario</h2>
+            <h2 style="text-align: left" class="white text_shadow">
+                <?php
+                    if(isset($_GET['usuario'])){
+                        echo $_GET['usuario'];
+                    }
+                  ?>
+                    
+                </h2>
 
             <div style="line-height: 1.4em;">
-                <a href="">Modificar datos </a><br>
+                <a href="">Modificar datos</a><br>
                 <a href="">Darse de baja</a><br>
                 <a href="">Visualizar albumes</a><br>
-                <a href="">Crear nuevo album</a><br>
-                <a href="album.php">Solicitar album impreso</a>
+                <a href="crearAlbum.php" href="">Crear nuevo album</a><br>
+                <a href="solicitarAlbum.php">Solicitar album impreso</a>
             </div>
         </div>
     </div>
-
-
 </section>
 </body>
 </html>

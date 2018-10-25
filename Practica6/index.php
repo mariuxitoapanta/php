@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php 
-    include("controlAcceso.php");
-?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +12,20 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    include("header.php");
+<?php 
+    include('headerSinLogear.php');
 ?>
 
 <?php 
-    include("loginIndex.php");
-?>
+
+    if(isset($_GET["error"])==true){
+        echo "<h1 style='color:red; text-align:center;'>Error en el login</h1>";
+    }
+
+ ?>
+<?php 
+    include('loginIndex.php');
+ ?>
 
 <section class="col-11 margin_auto">
 

@@ -11,13 +11,27 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    include("header.php");
+<?php 
+    include('headerSinLogear.php');
 ?>
 
 <div id="background-resBuscar" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Resultados de la búsqueda</h2>
+        <br><br>
+
+        <?php
+        $nombre = $_GET['nombre_buscar'];
+        $desde = $_GET['desde'];
+        $hasta = $_GET['hasta'];
+        $pais = $_GET['pais'];
+
+        echo "<p style='color:white;'>Nombre: ".$nombre."</p>";
+        echo "<p style='color:white;'>Desde: ".$desde."</p>";
+        echo "<p style='color:white;'>Hasta: ".$hasta."</p>";
+        echo "<p style='color:white;'>País: ".$pais."</p>";
+
+        ?>
     </section>
 </div>
 

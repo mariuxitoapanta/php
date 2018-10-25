@@ -12,17 +12,17 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    include("header.php");
+<?php 
+    include('headerSinLogear.php');
 ?>
 
 <div id="background-buscar" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Búsqueda avanzada</h2>
-        <form>
+        <form action = "resBuscar.php" method = "get">
 
             <label class="label_blanco text_shadow">Nombre de usuario</label>
-            <input type="text" placeholder="Introduce tu usuario" required>
+            <input type="text" name="nombre_buscar" placeholder="Introduce tu usuario" required>
             <br><br>
 
 
@@ -30,20 +30,20 @@
                 <div style="float:left;padding: 0 4% 0 0%;" class="col-6">
                     <label>
                         <label class="label_blanco text_shadow">Desde</label>
-                        <input type="date" style="width: 100%"></label>
+                        <input name="desde" type="date" style="width: 100%"></label>
                 </div>
                 <div style="float:left;" class="col-6">
                     <label>
                         <br id="br_none">
                         <label class="label_blanco text_shadow">Hasta</label>
-                        <input type="date" style="width: 100%"></label>
+                        <input name="hasta" type="date" style="width: 100%"></label>
                 </div>
             </div>
             <br>
 
 
             <label class="label_blanco text_shadow">País</label>
-            <select>
+            <select name="pais">
                 <option value="pais1">País 1</option>
                 <option value="pais2">País 2</option>
                 <option value="pais3">País 3</option>
