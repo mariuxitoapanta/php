@@ -12,8 +12,8 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('header.php');
+<?php
+include('header.php');
 ?>
 
 <section>
@@ -24,12 +24,12 @@
         <div class="margin_menu">
             <h2 style="text-align: left" class="white text_shadow">
                 <?php
-                    if(isset($_GET['usuario'])){
-                        echo $_GET['usuario'];
-                    }
-                  ?>
-                    
-                </h2>
+                if (isset($_GET['usuario'])) {
+                    echo $_GET['usuario'];
+                }
+                ?>
+
+            </h2>
 
             <div style="line-height: 1.4em;">
                 <a href="">Modificar datos</a><br>

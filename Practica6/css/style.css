@@ -163,8 +163,6 @@ input[type="color"]::-webkit-color-swatch {
     width: 8em;
 }
 
-
-
 .background_parallax {
     background-attachment: fixed;
     background-position: center;
@@ -359,7 +357,7 @@ input[type="color"]::-webkit-color-swatch {
 .dcha-foto2 {
     right: 0;
     width: 70%;
-    background-image: url('../img/i5.jpeg');
+    background-image: url('../img/i17.jpeg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -381,7 +379,7 @@ input[type="color"]::-webkit-color-swatch {
     padding-top: 0;
 }
 
-.margin_menu{
+.margin_menu {
     margin: 25% 5% 5% 10%
 }
 
@@ -425,7 +423,7 @@ input[type="color"]::-webkit-color-swatch {
     background-image: url('../img/i15.jpg');
 }
 
-#background-resRegistro{
+#background-resRegistro {
     background-image: url('../img/i16.jpg');
 }
 
@@ -534,17 +532,17 @@ input[type="color"]::-webkit-color-swatch {
         top: 5em;
         height: 40%;
     }
+
     .dcha-foto2 {
         top: 5em;
         height: 40%;
     }
 
-
     .margin_info_foto {
         margin: 10% 5% 5% 10%;
     }
 
-    .margin_menu{
+    .margin_menu {
         margin: 18% 5% 5% 10%;
     }
 

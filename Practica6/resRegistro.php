@@ -12,8 +12,8 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('header.php');
+<?php
+include('header.php');
 ?>
 
 <div id="background-resRegistro" class="background_parallax">
@@ -28,12 +28,12 @@
         $pass_repeat = $_POST['password_repeat'];
         $email = $_POST['email'];
 
-        if($pass !== $pass_repeat){
+        if ($pass !== $pass_repeat) {
             header('Location: registro.php?error=true');
         }
-        echo "<p style='color:white;'>Usuario: ".$usuario."</p>";
-        echo "<p style='color:white;'>Password: ".$pass."</p>";
-        echo "<p style='color:white;'>Email: ".$email."</p>";
+        echo "<p style='color:white;'>Usuario: " . $usuario . "</p>";
+        echo "<p style='color:white;'>Password: " . $pass . "</p>";
+        echo "<p style='color:white;'>Email: " . $email . "</p>";
 
         ?>
     </section>

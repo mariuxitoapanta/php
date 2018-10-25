@@ -12,20 +12,20 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('headerSinLogear.php');
+<?php
+include('headerSinLogear.php');
 ?>
 
-<?php 
+<?php
 
-    if(isset($_GET["error"])==true){
-        echo "<h1 style='color:red; text-align:center;'>Error en el login</h1>";
-    }
+if (isset($_GET["error"]) == true) {
+    echo "<h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>Error en el login</h1>";
+}
 
- ?>
-<?php 
-    include('loginIndex.php');
- ?>
+?>
+<?php
+include('loginIndex.php');
+?>
 
 <section class="col-11 margin_auto">
 
@@ -33,7 +33,7 @@
 
     <div class="imageGrid">
 
-        <a href="foto.php">
+        <a href="foto.php?foto=1">
             <div class="foto" style="background-image: url('img/i1.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
@@ -43,7 +43,7 @@
             </div>
         </a>
 
-        <a href="foto.php">
+        <a href="foto.php?foto=2">
             <div class="foto" style="background-image: url('img/i2.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
@@ -53,7 +53,7 @@
             </div>
         </a>
 
-        <a href="foto.php">
+        <a href="foto.php?foto=1">
             <div class="foto" style="background-image: url('img/i3.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
@@ -63,7 +63,7 @@
             </div>
         </a>
 
-        <a href="foto.php">
+        <a href="foto.php?foto=2">
             <div class="foto" style="background-image: url('img/i4.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
@@ -73,7 +73,7 @@
             </div>
         </a>
 
-        <a href="foto.php">
+        <a href="foto.php?foto=1">
             <div class="foto" style="background-image: url('img/i5.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
@@ -83,7 +83,7 @@
             </div>
         </a>
 
-        <a href="foto.php">
+        <a href="foto.php?foto=2">
             <div class="foto" style="background-image: url('img/i6.jpeg');">
                 <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum

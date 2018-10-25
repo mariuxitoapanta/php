@@ -12,8 +12,8 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('headerSinLogear.php');
+<?php
+include('headerSinLogear.php');
 ?>
 <section>
     <div class="split-foto izq-foto">
@@ -37,18 +37,18 @@
         </div>
     </div>
 
-    <?php 
+    <?php
 
-        if(isset($_GET['foto']) && $_GET['foto']==1){
-            
-            echo '<div class="split-foto dcha-foto"></div>';
-        }else if(isset($_GET['foto']) && $_GET['foto']==2){
+    if (isset($_GET['foto']) && $_GET['foto'] == 1) {
 
-            echo '<div class="split-foto dcha-foto2"></div>';
-            
-        }
+        echo '<div class="split-foto dcha-foto"></div>';
+    } else if (isset($_GET['foto']) && $_GET['foto'] == 2) {
+
+        echo '<div class="split-foto dcha-foto2"></div>';
+
+    }
     ?>
-    
+
 </section>
 </body>
 </html>

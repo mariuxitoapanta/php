@@ -12,14 +12,14 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('headerSinLogear.php');
+<?php
+include('headerSinLogear.php');
 ?>
 
 <div id="background-buscar" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Búsqueda avanzada</h2>
-        <form action = "resBuscar.php" method = "get">
+        <form action="resBuscar.php" method="get">
 
             <label class="label_blanco text_shadow">Nombre de usuario</label>
             <input type="text" name="nombre_buscar" placeholder="Introduce tu usuario" required>

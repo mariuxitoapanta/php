@@ -309,7 +309,7 @@ input[type="color"]::-webkit-color-swatch {
     width: 50%;
     position: fixed;
     z-index: 1;
-    top: 4.5em;
+    top: 4.6em;
     overflow-x: hidden;
     padding-top: 2em;
 }
@@ -350,6 +350,15 @@ input[type="color"]::-webkit-color-swatch {
     background-size: cover;
 }
 
+.dcha-foto2 {
+    right: 0;
+    width: 70%;
+    background-image: url('../img/i17.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 .margin_info_foto {
     margin: 40% 5% 5% 10%;
 }
@@ -359,6 +368,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /*-----------------------------------------IDs---------------------------------------------*/
+
 
 #background-album-top {
     background-image: none;
@@ -389,6 +399,14 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 #background-resBuscar {
+    background-image: none;
+}
+
+#background-crearAlbum {
+    background-image: none;
+}
+
+#background-resRegistro{
     background-image: none;
 }
 

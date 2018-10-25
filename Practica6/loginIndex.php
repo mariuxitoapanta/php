@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-    
-	echo '<div id="background-index-top" class="background_parallax">
+
+echo '<div id="background-index-top" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         
         <h2 class="white text_shadow">Iniciar sesión</h2>
@@ -30,8 +30,6 @@
         </form>
     </section>
 </div>';
-
-    
 
 
 ?>

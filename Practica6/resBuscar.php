@@ -11,8 +11,8 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php 
-    include('headerSinLogear.php');
+<?php
+include('headerSinLogear.php');
 ?>
 
 <div id="background-resBuscar" class="background_parallax">
@@ -26,10 +26,10 @@
         $hasta = $_GET['hasta'];
         $pais = $_GET['pais'];
 
-        echo "<p style='color:white;'>Nombre: ".$nombre."</p>";
-        echo "<p style='color:white;'>Desde: ".$desde."</p>";
-        echo "<p style='color:white;'>Hasta: ".$hasta."</p>";
-        echo "<p style='color:white;'>País: ".$pais."</p>";
+        echo "<p style='color:white;'>Nombre: " . $nombre . "</p>";
+        echo "<p style='color:white;'>Desde: " . $desde . "</p>";
+        echo "<p style='color:white;'>Hasta: " . $hasta . "</p>";
+        echo "<p style='color:white;'>País: " . $pais . "</p>";
 
         ?>
     </section>
@@ -38,53 +38,66 @@
 <section class="col-11 margin_auto">
     <br><br>
     <div class="imageGrid">
-        <div class="foto" style="background-image: url('img/i1.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
-                </div>
-            </div>
-        </div>
 
-        <div class="foto" style="background-image: url('img/i2.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
+        <a href="foto.php?foto=1">
+            <div class="foto" style="background-image: url('img/i1.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="foto" style="background-image: url('img/i3.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
+        <a href="foto.php?foto=2">
+            <div class="foto" style="background-image: url('img/i2.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="foto" style="background-image: url('img/i4.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
+        <a href="foto.php?foto=1">
+            <div class="foto" style="background-image: url('img/i3.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="foto" style="background-image: url('img/i5.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
+        <a href="foto.php?foto=2">
+            <div class="foto" style="background-image: url('img/i4.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="foto" style="background-image: url('img/i6.jpeg');">
-            <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
-                <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum hac
-                    lacus magna in lobortis maecenas
+        <a href="foto.php?foto=1">
+            <div class="foto" style="background-image: url('img/i5.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
+
+        <a href="foto.php?foto=2">
+            <div class="foto" style="background-image: url('img/i6.jpeg');">
+                <div class="titulo_foto"><h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <div class="info_foto">Per metus laoreet velit hendrerit malesuada non sollicitudin, interdum rutrum
+                        hac lacus magna in lobortis maecenas
+                    </div>
+                </div>
+            </div>
+        </a>
 
     </div>
 </section>
