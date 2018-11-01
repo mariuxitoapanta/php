@@ -4,12 +4,13 @@
     
     <title>Inicio | myAlbum</title>
     <?php 
-        if(isset($_COOKIE['sesion'])){
-            $cookie = json_decode($_COOKIE['sesion'],true);
+        session_start();
+        if(isset($_SESSION['sesion'])){
+            
 
-            if($cookie['Estilo'] == "style"){
+            if($_SESSION['sesion']['Estilo'] == "style"){
                 include('head.php');
-            }else if($cookie['Estilo'] == "Alto contraste"){
+            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
                 include('headAltoContraste.php');
             }
         }else{
@@ -20,7 +21,7 @@
 </head>
 <body>
 <?php
-    if(isset($_COOKIE['sesion'])){
+    if(isset($_SESSION['sesion'])){
         include('header.php');
     }else{
         include('headerSinLogear.php');

@@ -6,14 +6,15 @@
     
     <title>Menú usuario | myAlbum</title>
     <?php
-        if (!isset($_COOKIE['sesion'])) {
+        session_start();
+        if (!isset($_SESSION['sesion'])) {
             header('Location:'.'index.php');
         }else{
-            $cookie = json_decode($_COOKIE['sesion'],true);
+            
 
-            if($cookie['Estilo'] == "style"){
+            if($_SESSION['sesion']['Estilo'] == "style"){
                 include('head.php');
-            }else if($cookie['Estilo'] == "Alto contraste"){
+            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
                 include('headAltoContraste.php');
             }
         }
@@ -32,9 +33,9 @@ include('header.php');
         <div class="margin_menu">
             <h2 style="text-align: left" class="white text_shadow">
                 <?php
-                    if (isset($_COOKIE['sesion'])) {
-                        $cookie = json_decode($_COOKIE['sesion'],true);
-                        echo $cookie['usuario'];
+                    
+                    if (isset($_SESSION['sesion'])) {
+                        echo $_SESSION['sesion']['usuario'];
                     }
                 ?>
 
@@ -51,10 +52,11 @@ include('header.php');
 
             <p class="white text_shadow" style="font-size: .7em;"> Última conexión: 
                 <?php 
-                    if (isset($_COOKIE['sesion'])) {
+
+                    if (isset($_SESSION['sesion'])) {
 
                         if(isset($_COOKIE['tiempo'])){
-                            $cookie = json_decode($_COOKIE['tiempo'],tr);
+                            $cookie = json_decode($_COOKIE['tiempo'],true);
                             echo $cookie['mday'] . " de " . $cookie['month'] . " de " . $cookie['year'] . " a las " . $cookie['hours'] .":". $cookie['minutes'];
                             $date = json_encode(getdate());
                             setcookie('tiempo',$date,time() + 86400 * 90);

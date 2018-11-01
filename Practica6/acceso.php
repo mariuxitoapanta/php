@@ -33,9 +33,7 @@ $datos = array(
 	"Estilo" 		 => $css,
 );
 
-session_start();
 
-$_SESSION['sesion'] = $datos;
 
 
 
@@ -47,9 +45,12 @@ else{
 
 	// Comprobamos si esta marcada la casilla de recuerdame para añadir la cookie
 	if($_POST['recuerdame']=="on"){
-		setcookie('sesion',json_encode($datos), time() + 86400 * 90);
+		session_start();
+		$_SESSION['sesion'] = $datos;
+		
 	}else{
-		setcookie('sesion',json_encode($datos), 0);
+		session_start();
+		$_SESSION['sesion'] = $datos;
 	}
     header('Location: menu.php');
 }
