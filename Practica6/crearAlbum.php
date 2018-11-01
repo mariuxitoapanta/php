@@ -1,15 +1,24 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear álbum | myAlbum</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-    <link rel="alternate stylesheet" type="text/css" href="css/altoContraste.css" title="Alto contraste">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <title>Crear álbum | myAlbum</title>
+    <?php
+        if (!isset($_COOKIE['sesion'])) {
+            header('Location:'.'index.php');
+        }else{
+            $cookie = json_decode($_COOKIE['sesion'],true);
+
+            if($cookie['Estilo'] == "style"){
+                include('head.php');
+            }else if($cookie['Estilo'] == "Alto contraste"){
+                include('headAltoContraste.php');
+            }
+        }
+    ?>
 </head>
 <body>
 <?php
@@ -26,7 +35,7 @@ include('header.php');
             <br><br>
 
             <label class="label_blanco text_shadow" for="usuario">Descripción</label>
-            <textarea rows="4" cols="80" name="descripcion">Escribe tu información extra</textarea>
+            <textarea rows="4" cols="80" name="descripcion" placeholder="Escribe tu informacion extra"></textarea>
             <br><br>
 
             <br id="br_none">

@@ -18,10 +18,38 @@ if($password == $passBD){
     $flag = 2;
 }
 
+$eleccion = rand(1,2);
+$css;
+if($eleccion==1){
+	$css = "style";
+}else if($eleccion==2){
+	$css = "Alto contraste";
+}
+
+$datos = array(
+	"usuario" 		 => $username,
+	"pass"    		 => $password,
+	"tiempo"  		 => getdate(),
+	"Estilo" 		 => $css,
+);
+
+session_start();
+
+$_SESSION['sesion'] = $datos;
+
+
+
 
 if ($flag == 1 || $flag == 0){
     header('Location: index.php?error');
 }
 else{
-    header('Location: menu.php?usuario='.$_POST['usuario']);
+
+	// Comprobamos si esta marcada la casilla de recuerdame para añadir la cookie
+	if($_POST['recuerdame']=="on"){
+		setcookie('sesion',json_encode($datos), time() + 86400 * 90);
+	}else{
+		setcookie('sesion',json_encode($datos), 0);
+	}
+    header('Location: menu.php');
 }
