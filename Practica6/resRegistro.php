@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Respuesta de registro | myAlbum</title>
-    <?php
-        session_start();
-        if (!isset($_SESSION['sesion'])) {
-            header('Location:'.'index.php');
-        }else{
-            
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/altoContraste.css" title="Alto contraste">
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
-        }
-    ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-include('header.php');
+<?php 
+    include('header.php');
 ?>
 
 <div id="background-resRegistro" class="background_parallax">
@@ -35,12 +28,12 @@ include('header.php');
         $pass_repeat = $_POST['password_repeat'];
         $email = $_POST['email'];
 
-        if ($pass !== $pass_repeat) {
+        if($pass !== $pass_repeat){
             header('Location: registro.php?error=true');
         }
-        echo "<p style='color:white;'>Usuario: " . $usuario . "</p>";
-        echo "<p style='color:white;'>Password: " . $pass . "</p>";
-        echo "<p style='color:white;'>Email: " . $email . "</p>";
+        echo "<p style='color:white;'>Usuario: ".$usuario."</p>";
+        echo "<p style='color:white;'>Password: ".$pass."</p>";
+        echo "<p style='color:white;'>Email: ".$email."</p>";
 
         ?>
     </section>

@@ -1,28 +1,19 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú usuario | myAlbum</title>
-    <?php
-        session_start();
-        if (!isset($_SESSION['sesion'])) {
-            header('Location:'.'index.php');
-        }else{
-            
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/altoContraste.css" title="Alto contraste">
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
-        }
-    ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-include('header.php');
+<?php 
+    include('header.php');
 ?>
 
 <section>
@@ -33,14 +24,12 @@ include('header.php');
         <div class="margin_menu">
             <h2 style="text-align: left" class="white text_shadow">
                 <?php
-                    
-                    if (isset($_SESSION['sesion'])) {
-                        echo $_SESSION['sesion']['usuario'];
+                    if(isset($_GET['usuario'])){
+                        echo $_GET['usuario'];
                     }
-                ?>
-
-            </h2>
-            
+                  ?>
+                    
+                </h2>
 
             <div style="line-height: 1.4em;">
                 <a href="">Modificar datos</a><br>
@@ -49,30 +38,6 @@ include('header.php');
                 <a href="crearAlbum.php" href="">Crear nuevo album</a><br>
                 <a href="solicitarAlbum.php">Solicitar album impreso</a>
             </div>
-
-            <p class="white text_shadow" style="font-size: .7em;"> Última conexión: 
-                <?php 
-
-                    if (isset($_SESSION['sesion'])) {
-
-                        if(isset($_COOKIE['tiempo'])){
-                            $cookie = json_decode($_COOKIE['tiempo'],true);
-                            echo $cookie['mday'] . " de " . $cookie['month'] . " de " . $cookie['year'] . " a las " . $cookie['hours'] .":". $cookie['minutes'];
-                            $date = json_encode(getdate());
-                            setcookie('tiempo',$date,time() + 86400 * 90);
-
-                        }else{
-                            echo "Nunca";
-                            $date = json_encode(getdate());
-                            setcookie('tiempo',$date,time() + 86400 * 90);
-
-                        }
-                        
-                        
-                    }
-                ?>
-            </p>
-
         </div>
     </div>
 </section>

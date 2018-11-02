@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Búsqueda avanzada | myAlbum</title>
-    <?php 
-        session_start();
-        if(isset($_SESSION['sesion'])){
-            
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/altoContraste.css" title="Alto contraste">
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
-        }else{
-            include('head.php');
-        }
-        
-    ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
-<?php
-    if(isset($_SESSION['sesion'])){
-        include('header.php');
-    }else{
-        include('headerSinLogear.php');
-    }
-
+<?php 
+    include('headerSinLogear.php');
 ?>
 
 <div id="background-buscar" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Búsqueda avanzada</h2>
-        <form action="resBuscar.php" method="get">
+        <form action = "resBuscar.php" method = "get">
 
             <label class="label_blanco text_shadow">Nombre de usuario</label>
             <input type="text" name="nombre_buscar" placeholder="Introduce tu usuario" required>
