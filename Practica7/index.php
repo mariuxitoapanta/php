@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
-    <title>Inicio | myAlbum</title>
-    <?php 
-        session_start();
-        if(isset($_SESSION['sesion'])){
-            
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
-        }else{
+    <title>Inicio | myAlbum</title>
+    <?php
+    session_start();
+    if (isset($_SESSION['sesion'])) {
+
+
+        if ($_SESSION['sesion']['Estilo'] == "style") {
             include('head.php');
+        } else if ($_SESSION['sesion']['Estilo'] == "Alto contraste") {
+            include('headAltoContraste.php');
         }
-        
+    } else {
+        include('head.php');
+    }
+
     ?>
 </head>
 <body>
 <?php
-    if(isset($_SESSION['sesion'])){
-        include('header.php');
-    }else{
-        include('headerSinLogear.php');
-    }
+if (isset($_SESSION['sesion'])) {
+    include('header.php');
+} else {
+    include('headerSinLogear.php');
+}
 
 ?>
 
@@ -37,11 +37,13 @@ if (isset($_GET["error"]) == true) {
 
 ?>
 <?php
-    
 
-    if(!isset($_COOKIE['sesion'])){
-        include('loginIndex.php');
-    }
+
+if (!isset($_SESSION['sesion'])) {
+    include('loginIndex.php');
+} else {
+    include('noLogin.php');
+}
 
 ?>
 

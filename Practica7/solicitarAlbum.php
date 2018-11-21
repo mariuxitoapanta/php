@@ -1,22 +1,21 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    
+
     <title>Solicitar álbum | myAlbum</title>
     <?php
-        session_start();
-        if (!isset($_SESSION['sesion'])) {
-            header('Location:'.'index.php');
-        }else{
-            
+    session_start();
+    if (!isset($_SESSION['sesion'])) {
+        header('Location:' . 'index.php');
+    } else {
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
+
+        if ($_SESSION['sesion']['Estilo'] == "style") {
+            include('head.php');
+        } else if ($_SESSION['sesion']['Estilo'] == "Alto contraste") {
+            include('headAltoContraste.php');
         }
+    }
     ?>
 </head>
 <?php

@@ -14,43 +14,36 @@ if (array_key_exists($username, $bd)) {
     $passBD = $bd[$username];
 }
 
-if($password == $passBD){
+if ($password == $passBD) {
     $flag = 2;
 }
 
-$eleccion = rand(1,2);
-$css;
-if($eleccion==1){
-	$css = "style";
-}else if($eleccion==2){
-	$css = "Alto contraste";
+if ($username == 'usuario1' || $username == 'usuario2' || $username == 'usuario3') {
+    $css = "style";
+} else {
+    $css = "Alto contraste";
 }
 
 $datos = array(
-	"usuario" 		 => $username,
-	"pass"    		 => $password,
-	"tiempo"  		 => getdate(),
-	"Estilo" 		 => $css,
+    "usuario" => $username,
+    "pass" => $password,
+    "tiempo" => getdate(),
+    "Estilo" => $css,
 );
 
 
-
-
-
-
-if ($flag == 1 || $flag == 0){
+if ($flag == 1 || $flag == 0) {
     header('Location: index.php?error');
-}
-else{
+} else {
 
-	// Comprobamos si esta marcada la casilla de recuerdame para añadir la cookie
-	if($_POST['recuerdame']=="on"){
-		session_start();
-		$_SESSION['sesion'] = $datos;
-		
-	}else{
-		session_start();
-		$_SESSION['sesion'] = $datos;
-	}
+    // Comprobamos si esta marcada la casilla de recuerdame para añadir la cookie
+    if ($_POST['recuerdame'] == "on") {
+        session_start();
+        $_SESSION['sesion'] = $datos;
+
+    } else {
+        session_start();
+        $_SESSION['sesion'] = $datos;
+    }
     header('Location: menu.php');
 }

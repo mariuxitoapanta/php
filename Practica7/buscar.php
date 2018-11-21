@@ -3,29 +3,29 @@
 <head>
 
     <title>Búsqueda avanzada | myAlbum</title>
-    <?php 
-        session_start();
-        if(isset($_SESSION['sesion'])){
-            
+    <?php
+    session_start();
+    if (isset($_SESSION['sesion'])) {
 
-            if($_SESSION['sesion']['Estilo'] == "style"){
-                include('head.php');
-            }else if($_SESSION['sesion']['Estilo'] == "Alto contraste"){
-                include('headAltoContraste.php');
-            }
-        }else{
+
+        if ($_SESSION['sesion']['Estilo'] == "style") {
             include('head.php');
+        } else if ($_SESSION['sesion']['Estilo'] == "Alto contraste") {
+            include('headAltoContraste.php');
         }
-        
+    } else {
+        include('head.php');
+    }
+
     ?>
 </head>
 <body>
 <?php
-    if(isset($_SESSION['sesion'])){
-        include('header.php');
-    }else{
-        include('headerSinLogear.php');
-    }
+if (isset($_SESSION['sesion'])) {
+    include('header.php');
+} else {
+    include('headerSinLogear.php');
+}
 
 ?>
 

@@ -1,17 +1,17 @@
 <?php
-    if (isset($_COOKIE['sesion'])) {
-        header('Location:'.'index.php');
-    }
+if (isset($_COOKIE['sesion'])) {
+    header('Location:' . 'index.php');
+}
 ?>
 
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
+
     <title>Registro usuario | myAlbum</title>
-    <?php 
-        include('head.php');
+    <?php
+    include('head.php');
     ?>
 </head>
 <body>
