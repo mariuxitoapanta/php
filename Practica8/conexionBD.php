@@ -1,15 +1,15 @@
-<?php 
-	
-	$db_host = "localhost";
-	$db_nombre = "pibd";
-	$db_usuario = "root";
-	$db_clave = "";
+<?php
 
-	$conexion = new mysqli($db_host,$db_usuario,$db_clave,$db_nombre);
+$db_host = "localhost";
+$db_nombre = "pibd";
+$db_usuario = "root";
+$db_clave = "";
 
-	if($conexion->connect_errno){
-		echo "Fallo la conexion" . $conexion->connect_errno;
-	}
+$conexion = new mysqli($db_host, $db_usuario, $db_clave, $db_nombre);
 
-	$conexion->set_charset("utf8");
+if ($conexion->connect_errno) {
+    echo "Fallo la conexion" . $conexion->connect_errno;
+}
+
+$conexion->set_charset("utf8");
 ?>

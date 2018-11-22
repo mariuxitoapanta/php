@@ -3,8 +3,8 @@
 <head>
 
     <title>Solicitar álbum | myAlbum</title>
-    <?php 
-        include("eleccionEstilo.php");
+    <?php
+    include("eleccionEstilo.php");
     ?>
 </head>
 <?php
@@ -63,35 +63,20 @@ include('header.php');
             <div style="float:left;" class="col-6 padding_input4">
                 <label>
                     <label class="label_blanco text_shadow">Nombre y apellidos</label>
-                    <input type="text" name="nombre" placeholder="Pedro Perez" style="width: 100%"></label>
+                    <input type="text" name="nombre" placeholder="Pedro Perez" style="width: 100%" required></label>
             </div>
-            <div style="float:left;" class="col-6">
+            <div style="float:left;" class="col-6 padding_input_top">
                 <br id="br_none">
-                <label>
-                    <label class="label_blanco text_shadow" for="album">Album</label>
+
+                <label class="label_blanco text_shadow" for="album">Album</label>
+                <div class="select">
                     <select name="album">
-                        <?php 
-                            
-                            include("conexionBD.php");
-                            session_start();
-                            $IdUsuario = $_SESSION['sesion']['IdUsuario'];
-                            
-                            //TODO aun no se si hay que insertar usuarios por eso no se que poner en el where
-                            $sql = 'SELECT * from ALBUMES where Usuario='.'"'.$IdUsuario.'"';
-                            $resultados = $conexion->query($sql);
+                        <?php
+                        require("rellenarAlbumes.php");
 
-                            if($conexion->errno){
-                                echo "Problemas al establecer conexion";
-                            }
-
-                            while($fila=$resultados->fetch_assoc()){
-                                //Al hacer el POST enviamos el value ya que al insertar en la BBDD especificaremos el Id del pais y no el nombre
-                                echo "<option value=" . "'".$fila['IdAlbum']."'>".$fila['Titulo']."</option>";
-
-                            }
                         ?>
-                                
-                    </select>
+
+                    </select></div>
             </div>
         </div>
         <br>
@@ -131,19 +116,21 @@ include('header.php');
                 <label class="label_blanco text_shadow">País</label>
             </div>
             <div style="float:left; width:48%;" class="col-2 padding_input4">
-                <select>
-                    <option value="provincia1">Provincia 1</option>
-                    <option value="provincia2">Provincia 2</option>
-                    <option value="provincia3">Provincia 3</option>
-                    <option value="provincia4">Provincia 4</option>
-                </select>
+                <div class="select">
+                    <select>
+                        <option value="provincia1">Provincia 1</option>
+                        <option value="provincia2">Provincia 2</option>
+                        <option value="provincia3">Provincia 3</option>
+                        <option value="provincia4">Provincia 4</option>
+                    </select></div>
             </div>
             <div style="float:left; width:48%;" class="col-2">
-                <select>
-                    <?php 
+                <div class="select">
+                    <select>
+                        <?php
                         require("rellenarPaises.php");
-                    ?>
-                </select>
+                        ?>
+                    </select></div>
             </div>
         </div>
         <br>
@@ -172,31 +159,26 @@ include('header.php');
         <br>
 
         <div class="row">
-            <div style="float:left;" class="col-4-special padding_input4_5 padding_input_top">
-                <label class="label_blanco text_shadow">Álbumes de fotos</label>
-                <select>
-                    <option value="album1">Álbum 1</option>
-                    <option value="album2">Álbum 2</option>
-                </select>
-            </div>
-            <div style="float:left;" class="col-4-special padding_input4_5 padding_input_top">
+            <div style="float:left;padding-right: 4%" class="col-6">
                 <label>
                     <br id="br_none">
                     <label class="label_blanco text_shadow">Fecha de recepcion</label>
                     <input type="date" style="width: 100%"></label>
             </div>
-            <div style="float:left;" class="col-4-special padding_input_top">
+            <div style="float: right;" class="col-6">
                 <br id="br_none">
                 <label class="label_blanco text_shadow">Impresión a color</label>
-                <select name="impresion">
-                    <option value="bn">Blanco y negro</option>
-                    <option value="color">Color</option>
-                </select>
+                <div class="select">
+                    <select style="float: right;" name="impresion">
+                        <option value="bn">Blanco y negro</option>
+                        <option value="color">Color</option>
+                    </select></div>
             </div>
         </div>
         <br>
-
-        <button type="submit" style="cursor:pointer;">Solicitar</button>
+        <div class="row">
+            <button type="submit" style="cursor:pointer;">Solicitar</button>
+        </div>
         </form>
         <br>
     </div>

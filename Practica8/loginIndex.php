@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="fontSize white text_shadow col-7" style="float: right;">¿Todavía no tienes cuenta? <a
-                            href="registro.php">Registrate aquí</a></div>
+                            class="link" href="registro.php">Registrate aquí</a></div>
             </div>
 
         </form>

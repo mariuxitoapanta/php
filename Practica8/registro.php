@@ -3,12 +3,9 @@ if (isset($_COOKIE['sesion'])) {
     header('Location:' . 'index.php');
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
     <title>Registro usuario | myAlbum</title>
     <?php
     include('head.php');
@@ -24,7 +21,7 @@ include('headerSinLogear.php');
         <h2 class="text_shadow" style="color:red;">
             <?php
             if (isset($_GET['error'])) {
-                echo "Error en el registro";
+                echo "<h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>Error en el registro</h1>";
             }
             ?>
         </h2>
@@ -52,30 +49,35 @@ include('headerSinLogear.php');
                 </div>
             </div>
             <br>
-
-
             <label class="label_blanco text_shadow" for="email">Correo electrónico</label>
             <input type="email" name="email" placeholder="usuario1@myalbum.com" required>
             <br><br>
-
-            <label class="label_blanco text_shadow" for="gender"></label>
-            <input class="white text_shadow" type="radio" name="gender" value="1" required> <span class="white text_shadow">Hombre</span> <br>
-            <input class="white text_shadow" type="radio" name="gender" value="2" required> <span class="white text_shadow">Mujer</span> <br>
-            <input class="white text_shadow" type="radio" name="gender" value="3" required> <span class="white text_shadow">Otro</span> <br><br>
-            
-            <label class="label_blanco text_shadow" for="FNacimiento">Fecha nacimiento</label>
-            <input type="date" name="FNacimiento" required>
-            <br><br>
-
+            <div class="row">
+                <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
+                    <label class="label_blanco text_shadow">Género</label>
+                    <div class="select">
+                        <select name="gender">
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                            <option value="otro">Otro</option>
+                        </select></div>
+                </div>
+                <div style="float:left;" class="col-6">
+                    <label class="label_blanco text_shadow" for="FNacimiento">Fecha nacimiento</label>
+                    <input type="date" name="FNacimiento" required>
+                </div>
+            </div>
+            <br>
             <label class="label_blanco text_shadow">Estilo</label>
-            <select name="estilo">
-                <?php 
+            <div class="select">
+                <select name="estilos">
+                    <?php
                     require("rellenarEstilos.php");
 
-                ?>
-                        
-            </select>
-
+                    ?>
+                </select>
+            </div>
+            <br><br>
             <div class="row">
                 <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
                     <label>
@@ -85,19 +87,18 @@ include('headerSinLogear.php');
                 <div style="float:left;" class="col-6">
                     <br id="br_none">
                     <label class="label_blanco text_shadow">País</label>
-                    <select name="pais">
-                        <?php 
+                    <div class="select">
+                        <select name="paises">
+                            <?php
                             require("rellenarPaises.php");
 
-                        ?>
-                        
-                    </select>
+                            ?>
+
+                        </select></div>
                 </div>
             </div>
             <br id="br_none">
             <button type="submit" style="cursor:pointer;">Registrarse</button>
-
-
         </form>
     </section>
 </div>

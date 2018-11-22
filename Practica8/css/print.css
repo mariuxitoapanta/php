@@ -54,33 +54,127 @@ a {
 
 button {
     width: 100%;
+    height: 4em;
     margin: 2% 0 2% 0;
-    padding: 2%;
+    padding: 1.5% 2% 1.5% 2%;
     text-align: center;
     text-transform: uppercase;
     background-size: 200% auto;
-    color: black;
-    box-shadow: none;
-    border: none;
+    color: white;
+    border: 0 solid black;
+    box-shadow: 0 0 10px #000;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 8px;
-    font-family: Georgia, serif;
+    background-image: linear-gradient(to right, #d91226 0%, #936df4 51%, #fa8f20 100%);
+    transition: all 0.9s ease-in-out;
 }
 
-input[type=text], input[type=pass], input[type=email], select, input[type=date], input[type=number], textarea {
+button:hover {
+    transition: all 0.9s ease-in-out;
+    background-position: right center;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #1e2e40;
+}
+
+input[type=text], input[type=password], input[type=email], select, input[type=date], input[type=number] {
     width: 100%;
+    height: 3.5em;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 3px solid #ff1aaf;
-    box-shadow: none;
+    color: black;
     border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+
     box-sizing: border-box;
     font-family: Georgia, serif;
 }
 
-input, select, textarea, table, button {
-    font-size: 1.1em;
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    color: white;
+
+    border-radius: 4px;
+    background: #1e2e40;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+
+textarea::placeholder {
+    color: black;
+}
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #a7f300;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background-color: #1e2e40;
+}
+
+input::placeholder {
+    color: black;
+}
+
+select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 0.9em;
+    color: black;
+    cursor: pointer;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+textarea {
+    font-size: 0.85em;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 100%;
+    height: 45px;
+    margin: 8px 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+::placeholder {
+    color: black;
+    opacity: 0.7;
 }
 
 /*-----------------------------------------CLASES---------------------------------------------*/
@@ -168,61 +262,6 @@ input, select, textarea, table, button {
 
 .margin_right_icon {
     margin-right: 2em;
-}
-
-.imageGrid .foto {
-    width: 33.33%;
-    min-height: 17em;
-    line-height: 1.2;
-    display: inline-flex;
-    flex-wrap: wrap;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    position: relative;
-    margin-right: -4.2px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.imageGrid .foto:before {
-    content: '';
-    background-color: rgba(15, 15, 15, 0.5);
-    display: block;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    position: absolute;
-}
-
-.imageGrid .foto:hover:before {
-    display: none;
-
-}
-
-.imageGrid .foto .titulo_foto {
-    text-align: center;
-    vertical-align: middle;
-    width: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.5em;
-}
-
-.imageGrid .foto .titulo_foto .info_foto {
-    display: none;
-}
-
-.imageGrid .foto:hover .titulo_foto .info_foto {
-    display: block;
-}
-
-.detalle-foto {
-    display: table;
-    width: 100%;
 }
 
 .margin_info_foto {
@@ -332,12 +371,28 @@ input, select, textarea, table, button {
     background-image: none;
 }
 
+#background-crearAlbum {
+    background-image: none;
+}
+
+#background-resRegistro {
+    background-image: none;
+}
+
+#background-verAlbum {
+    background-image: none;
+}
+
+#background-añadirFoto {
+    background-image: none;
+}
+
 #br_none {
     display: none;
 }
 
 #input_pass_login {
-    background-image: url("img/lock.jpg");
+    background-image: url("img/lock.png");
     background-repeat: no-repeat;
     background-position: right;
 }

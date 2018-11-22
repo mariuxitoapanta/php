@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <title>Respuesta de registro | myAlbum</title>
-    
 
-    <?php 
-        include("eleccionEstilo.php");
+
+    <?php
+    include("eleccionEstilo.php");
     ?>
 </head>
 <body>
@@ -34,6 +34,8 @@ include('header.php');
         if ($pass !== $pass_repeat) {
             header('Location: registro.php?error=true');
         }
+
+        /*
         echo "<p style='color:white;'>Usuario: " . $usuario . "</p>";
         echo "<p style='color:white;'>Password: " . $pass . "</p>";
         echo "<p style='color:white;'>Email: " . $email . "</p>";
@@ -41,8 +43,7 @@ include('header.php');
         echo "<p style='color:white;'>Pais: " . $pais . "</p>";
         echo "<p style='color:white;'>Sexo: " . $sexo . "</p>";
         echo "<p style='color:white;'>Estilo: " . $estilo . "</p>";
-        echo "<p style='color:white;'>Fecha: " . $fechaN . "</p>";
-
+        echo "<p style='color:white;'>Fecha: " . $fechaN . "</p>";*/
 
 
         ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2018 a las 15:05:27
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.8
+-- Tiempo de generación: 22-11-2018 a las 13:10:07
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,9 +40,8 @@ CREATE TABLE `albumes` (
 --
 
 INSERT INTO `albumes` (`IdAlbum`, `Titulo`, `Descripcion`, `Usuario`) VALUES
-(1, 'Album de prueba', 'descripcion de prueba', 1),
-(2, 'titulo', 'descripcion', 1),
-(3, 'uwu', 'wuwuwuw', 1);
+(1, 'Album de prueba', 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sapien morbi vivamus a dis. Sapien hac ridiculus quisque turpis sollicitudin suspendisse tortor, senectus cum sociosqu tempus bibendum.', 1),
+(2, 'Album2', 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sapien morbi vivamus a dis. Sapien hac ridiculus quisque turpis sollicitudin suspendisse tortor, senectus cum sociosqu tempus bibendum.', 1);
 
 -- --------------------------------------------------------
 
@@ -89,12 +88,12 @@ CREATE TABLE `fotos` (
 
 INSERT INTO `fotos` (`IdFoto`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES
 (1, 'foto prueba', 'descripcion de prueba', '2018-11-07', 1, 1, 'i1.jpeg', 'alternativo de ejemplo', '16:00:00'),
-(2, 'foto prueba 2', 'descripcion prueba 2', '2018-11-23', 2, 1, 'i2.jpeg', 'texto alternativo 2', '19:29:00'),
+(2, 'foto prueba 2', 'descripcion prueba 2', '2018-09-23', 2, 1, 'i2.jpeg', 'texto alternativo 2', '19:29:00'),
 (3, 'foto prueba 3', 'descripcion prueba 3', '2018-11-23', 2, 1, 'i3.jpeg', 'texto alternativo 3', '19:29:00'),
-(4, 'foto prueba 4', 'descripcion prueba 4', '2018-11-12', 1, 1, 'i4.jpeg', 'texto alternativo 4', '00:08:00'),
-(5, 'foto prueba 5', 'descripcion prueba 5', '2018-11-12', 1, 1, 'i5.jpeg', 'texto alternativo 5', '00:08:00'),
+(4, 'foto prueba 4', 'descripcion prueba 4', '2018-11-12', 1, 2, 'i4.jpeg', 'texto alternativo 4', '00:08:00'),
+(5, 'foto prueba 5', 'descripcion prueba 5', '2018-11-12', 1, 2, 'i5.jpeg', 'texto alternativo 5', '00:08:00'),
 (6, 'foto prueba 6', 'descripcion prueba 6', '2018-11-22', 2, 1, 'i6.jpeg', 'texto alternativo foto 6', '09:11:20'),
-(7, 'foto prueba 7', 'descripcion prueba 7', '2018-11-22', 2, 1, 'i4.jpeg', 'texto alternativo foto 7', '09:11:20');
+(7, 'foto prueba 7', 'descripcion prueba 7', '2018-11-22', 2, 2, 'i18.jpeg', 'texto alternativo foto 7', '09:11:20');
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`, `Estilo`) VALUES
-(1, 'usuario1', 'usuario1', 'usuario1@gmail.com', 1, '2018-11-01', 'Alicante', 1, 'foto1.png', '12:07:00', 1),
+(1, 'usuario1', 'usuario1', 'usuario1@gmail.com', 3, '2018-11-01', 'Alicante', 1, 'foto1.png', '12:07:00', 1),
 (2, 'usuario2', 'usuario2', 'usuario2@gmail.com', 1, '2018-11-02', 'Zaragoza', 2, 'foto2.png', '12:07:00', 2);
 
 --
@@ -221,7 +220,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `albumes`
 --
 ALTER TABLE `albumes`
-  MODIFY `IdAlbum` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdAlbum` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `estilos`

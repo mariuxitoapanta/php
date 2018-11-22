@@ -3,8 +3,8 @@
 <head>
 
     <title>Álbum creado | myAlbum</title>
-    <?php 
-        include("eleccionEstilo.php");
+    <?php
+    include("eleccionEstilo.php");
     ?>
 </head>
 <body>
@@ -18,24 +18,23 @@ include('header.php');
         <h2 class="white text_shadow">Se ha registrado la solicitud</h2>
         <br><br>
         <?php
+        $titulo = mysqli_real_escape_string($conexion, $_POST['titulo']);
+        $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
+        $usuario = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
 
-            $titulo = $_POST['titulo'];
-            $descripcion = $_POST['descripcion'];
-            $usuario = $_SESSION['sesion']['IdUsuario'];
-
-            echo "<p style='color:white;'>Título: " . $titulo . "</p>";
-            echo "<p style='color:white;'>Descripcion: " . $descripcion . "</p>";
-            echo "<p style='color:white;'>ID Usuario: " . $usuario . "</p>";
+        echo "<p style='color:white;'>Título: " . $titulo . "</p>";
+        echo "<p style='color:white;'>Descripcion: " . $descripcion . "</p>";
+        echo "<p style='color:white;'>ID Usuario: " . $usuario . "</p>";
 
 
-            include("conexionBD.php");
+        include("conexionBD.php");
 
-            $sql = "INSERT INTO ALBUMES(IdAlbum,Titulo,Descripcion,Usuario) VALUES ('NULL','$titulo','$descripcion','$IdUsuario')";
+        $sql = "INSERT INTO ALBUMES(IdAlbum,Titulo,Descripcion,Usuario) VALUES ('NULL','$titulo','$descripcion','$IdUsuario')";
 
-            if($conexion->query($sql) === TRUE){
-                echo "Introducido";
-            }
-            
+        if ($conexion->query($sql) === TRUE) {
+            echo "Introducido";
+        }
+
 
         ?>
 

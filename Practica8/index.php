@@ -3,19 +3,22 @@
 <head>
 
     <title>Inicio | myAlbum</title>
-    <?php 
-        session_start();
-        if (!isset($_SESSION['sesion'])) {
+    <?php
+    session_start();
+
+    include("recuerdame.php");
+
+    if (!isset($_SESSION['sesion'])) {
+        include('head.php');
+    } else {
+
+
+        if ($_SESSION['sesion']['Estilo'] == '1') {
             include('head.php');
-        } else {
-
-
-            if ($_SESSION['sesion']['Estilo'] == '1') {
-                include('head.php');
-            } else if ($_SESSION['sesion']['Estilo'] == '2') {
-                include('headAltoContraste.php');
-            }
+        } else if ($_SESSION['sesion']['Estilo'] == '2') {
+            include('headAltoContraste.php');
         }
+    }
     ?>
 </head>
 <body>
@@ -47,66 +50,36 @@ if (!isset($_SESSION['sesion'])) {
 ?>
 
 <section class="col-11 margin_auto">
-
+    <br>
     <h2 class="white">Últimas fotos</h2>
+    <div class="container col-11 margin_auto">
+        <?php
+        require("conexionBD.php");
 
-    <div class="imageGrid">
-        <?php 
-            require("conexionBD.php");
+        $sql = "SELECT * FROM FOTOS ORDER BY FRegistro DESC limit 6";
+        $resultados = $conexion->query($sql);
 
-            $sql = "SELECT * FROM FOTOS";
-            $resultados=$conexion->query($sql);
+        if ($conexion->errno) {
+            echo "Problemas al establecer conexion";
+        }
 
-            if($conexion->errno){
-                echo "Problemas al establecer conexion";
-            }
+        while ($fila = $resultados->fetch_assoc()) {
+            $id = $fila['IdFoto'];
+            $fichero = $fila['Fichero'];
+            $titulo = $fila['Titulo'];
+            $descripcion = $fila['Descripcion'];
+            $paisBuscar = mysqli_real_escape_string($conexion, $fila['Pais']);
+            $sqlPais = "SELECT * FROM PAISES WHERE IdPais = '$paisBuscar'";
+            $pais = $conexion->query($sqlPais);
+            $fecha = $fila['FRegistro'];
+            $paisNom = $pais->fetch_assoc();
+            $paisNom2 = $paisNom['NomPais'];
 
-            //Contamos el numero de fotos que hay para mostrar las 6 ultimas
-            $sqlNumFotos = "SELECT count(*) as total FROM FOTOS";
-            $resultados2=$conexion->query($sqlNumFotos);
-            $data = $resultados2->fetch_assoc();
-            $numfotos = $data['total'];
-
-            //TODO Prueba para acceder a todos los datos de golpe
-            /*
-            $prueba = $resultados->fetch_all(MYSQLI_ASSOC);
-            echo $prueba[1]['Fichero'];
-            Tambien recordar
-            $prueba->num_rows
-            */
-
-            while($fila=$resultados->fetch_assoc()){
-
-                //TODO la parte de mostrar las 6 ultimas estaria bien optimizarla de otra manera
-                if($numfotos<=6){
-                    $id = $fila['IdFoto'];
-                    $fichero = $fila['Fichero'];
-                    $titulo = $fila['Titulo'];
-                    $descripcion = $fila['Descripcion'];
-                    $paisBuscar = $fila['Pais'];
-                    $sqlPais = 'SELECT * from PAISES where IdPais = '.'"'.$paisBuscar.'"';
-                    $pais = $conexion->query($sqlPais);
-                    $fecha = $fila['FRegistro'];
-                    $paisNom = $pais->fetch_assoc();
-                    $paisNom2 = $paisNom['NomPais'];
-                    
-                    echo "<a href='foto.php?foto=$id'>
-                            <div class='foto' style='background-image: url(img/$fichero);'>
-                                <div class='titulo_foto'><h2>$titulo</h2>
-                                    <div class='info_foto'>$descripcion</div>
-                                    <br>
-                                    <div class='info_foto'>$paisNom2, $fecha</div>
-                                </div>
-                            </div>
-                        </a>";
-                }else{
-                    $numfotos--;
-                }
-                
-            }
+            echo "<a class='link_photo' href='foto.php?foto=$id'><div class='box_photo'><div class=\"foto\" style=\"background-image: url('img/$fichero');\"><div class=\"text_photo\"><h2>$titulo</h2><div class='info_foto'>$descripcion</div><br><div class='info_foto'>$paisNom2, $fecha</div></div></div></div></a>";
+        }
 
         ?>
-        
+
     </div>
 </section>
 <footer class="footer"></footer>

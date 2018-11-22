@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
     <title>Búsqueda avanzada | myAlbum</title>
-    <?php 
-        include("eleccionEstilo.php");
+    <?php
+    include("eleccionEstilo.php");
     ?>
-
-    
 </head>
 <body>
 <?php
@@ -16,19 +13,14 @@ if (isset($_SESSION['sesion'])) {
 } else {
     include('headerSinLogear.php');
 }
-
 ?>
-
 <div id="background-buscar" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Búsqueda avanzada</h2>
         <form action="resBuscar.php" method="get">
-
             <label class="label_blanco text_shadow">Titulo</label>
             <input type="text" name="titulo" placeholder="Vacaciones en Ibiza" required>
             <br><br>
-
-
             <div class="row">
                 <div style="float:left;padding: 0 4% 0 0%;" class="col-6">
                     <label>
@@ -43,19 +35,15 @@ if (isset($_SESSION['sesion'])) {
                 </div>
             </div>
             <br>
-
-
             <label class="label_blanco text_shadow">País</label>
-            <select name="pais">
-                <?php 
+            <div class="select">
+                <select name="pais">
+                    <?php
                     require("rellenarPaises.php");
-                ?>
-            </select>
-            <br><br>
-
+                    ?>
+                </select></div>
+            <br>
             <button type="submit" style="cursor:pointer">Buscar</button>
-
-
         </form>
     </section>
 </div>

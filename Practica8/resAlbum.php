@@ -3,8 +3,8 @@
 <head>
 
     <title>Álbum solicitado | myAlbum</title>
-    <?php 
-        include("eleccionEstilo.php");
+    <?php
+    include("eleccionEstilo.php");
     ?>
 </head>
 <body>
@@ -18,8 +18,9 @@ include('header.php');
         <h2 class="white text_shadow">Se ha registrado la solicitud</h2>
         <br><br>
         <?php
+        require('conexionBD.php');
         $nombre = $_POST['nombre'];
-        $titulo = $_POST['titulo'];
+        $album = $_POST['album'];
         $extra = $_POST['texto_extra'];
         $color = $_POST['impresion'];
         $copias = $_POST['copias'];
@@ -56,8 +57,14 @@ include('header.php');
         $precio_total = $precio_fotos + $precio_paginas;
         $precio_total = $precio_total * $copias;
 
+        $IdAlbum = mysqli_real_escape_string($conexion, $album);
+
+        $sql = 'SELECT * from ALBUMES where IdAlbum="'.$IdAlbum.'"';
+        $nombreAlbum = $conexion->query($sql);
+        $titulo = $nombreAlbum->fetch_assoc();
+
         echo "<p style='color:white;'>Nombre: " . $nombre . "</p>";
-        echo "<p style='color:white;'>Título: " . $titulo . "</p>";
+        echo "<p style='color:white;'>Título: " . $titulo['Titulo'] . "</p>";
         echo "<p style='color:white;'>Texto adicional: " . $extra . "</p>";
         echo "<p style='color:white;'>Número de copias: " . $copias . "</p>";
         echo "<p style='color:white;'>Precio total: " . $precio_total . "</p>";
@@ -68,7 +75,6 @@ include('header.php');
             echo "<p style='color:white;'>Color: En color</p>";
         }
         ?>
-
     </section>
 </div>
 
