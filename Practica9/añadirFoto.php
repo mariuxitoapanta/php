@@ -18,18 +18,18 @@ include('headerSinLogear.php');
 <div id="background-añadirFoto" class="background_parallax">
     <section class="col-4 margin_auto padding20">
         <h2 class="white text_shadow">Añadir foto a álbum</h2>
-        <form action="resRegistro.php" method="post">
-            <label class="label_blanco text_shadow">Título de la foto</label>
-            <input type="text" name="usuario" placeholder="Vacaciones en Ibiza" required>
+        <form action="resSubidaFoto.php" method="post">
+            <label class="label_blanco text_shadow" for="titulo">Título de la foto</label>
+            <input type="text" name="titulo" placeholder="Vacaciones en Ibiza" required>
             <br><br>
-            <label class="label_blanco text_shadow" for="usuario">Descripción</label>
+            <label class="label_blanco text_shadow" for="descripcion">Descripción</label>
             <textarea rows="4" cols="80" name="descripcion" placeholder="Escribe tu informacion extra"></textarea>
             <br><br>
             <div class="row">
                 <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
                     <label>
-                        <label class="label_blanco text_shadow">Fecha</label>
-                        <input type="date" required>
+                        <label class="label_blanco text_shadow" for="fecha">Fecha</label>
+                        <input type="date" name="fecha" required>
                 </div>
                 <div style="float:left;" class="col-6">
                     <br id="br_none">
@@ -37,14 +37,14 @@ include('headerSinLogear.php');
                     <div class="select">
                         <select name="paises">
                             <?php
-                            require("rellenarPaises.php");
+                                require("rellenarPaises.php");
                             ?>
                         </select></div>
                 </div>
             </div>
             <br>
-            <label class="label_blanco text_shadow">Texto alternativo</label>
-            <input type="text" name="alt" placeholder="" required>
+            <label class="label_blanco text_shadow" for="textoAlternativo">Texto alternativo</label>
+            <input type="text" name="textoAlternativo" placeholder="" required>
             <br>
             <br>
             <label class="label_blanco text_shadow" for="album">Album</label>

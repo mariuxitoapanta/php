@@ -18,15 +18,20 @@ include('header.php');
     </div>
     <div id="background-menu" class="split-menu dcha-menu">
         <div style="float: right; margin-right: 2%" class="col-4">
-            <label style="font-size: 0.8em" class="label_blanco text_shadow">Configura tu estilo</label>
-            <div class="select sel_estilos">
+            <form action="actualizarEstilo.php" method="POST">
+                <label style="font-size: 0.8em" class="label_blanco text_shadow">Configura tu estilo</label>
+                <div class="select sel_estilos">
                 <select class="sel_estilos" name="estilos">
-                    <?php
-                    require("rellenarEstilos.php");
-
-                    ?>
+                <?php
+                    require("rellenarEstilosUsuario.php")
+                ?>
                 </select>
+                
             </div>
+            <br id="br_none">
+                <button type="submit" style="cursor:pointer;">Actualizar estilo</button>
+            </form>
+            
         </div>
         <div class="margin_menu">
             <h2 style="text-align: left" class="white text_shadow">

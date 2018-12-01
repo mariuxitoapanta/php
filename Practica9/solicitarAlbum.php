@@ -91,13 +91,13 @@ include('header.php');
             <div style="float:left;" class="col-4-special padding_input4_5 padding_input_top">
                 <label>
                     <label class="label_blanco text_shadow">Correo electrónico</label>
-                    <input type="text" placeholder="pedro@gmail.com" style="width: 100%"></label>
+                    <input type="text" placeholder="pedro@gmail.com" style="width: 100%" name="email"></label>
             </div>
             <div style="float:left;" class="col-4-special padding_input4_5 padding_input_top">
                 <label>
                     <br id="br_none">
                     <label class="label_blanco text_shadow">Dirección de la calle</label>
-                    <input type="text" placeholder="Ronda de las parcelas nº10" style="width: 100%"></label>
+                    <input type="text" placeholder="Ronda de las parcelas nº10" style="width: 100%" name="direccion"></label>
             </div>
             <div style="float:left;" class="col-4-special padding_input_top">
                 <label>
