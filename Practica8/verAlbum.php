@@ -35,7 +35,10 @@ include('header.php');
 
 
         $sql = "SELECT * FROM fotos WHERE Album=$id_album";
+
         $resultados = $conexion->query($sql);
+
+        
 
         $sql2 = "SELECT min(Fecha) as minFecha, max(Fecha) as maxFecha FROM fotos WHERE Album=$id_album";
         $resultados_fecha = $conexion->query($sql2);
@@ -64,6 +67,8 @@ include('header.php');
             array_push($array_paises, $res_paises_fetch['nomPais']);
         }
 
+
+
         $nombre_album = $fila_album['Titulo'];
         $descrip_album = $fila_album['Descripcion'];
         $min_fecha = $row_fechas['minFecha'];
@@ -90,9 +95,12 @@ include('header.php');
         }
 
         echo "</div>";
+        if(isset($resultados)){
+            echo "<p class='white'>No hay fotos</p>";
+        }
         ?>
 
-
+        
         <br>
     </section>
 </div>

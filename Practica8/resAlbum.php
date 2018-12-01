@@ -63,11 +63,11 @@ include('header.php');
         $nombreAlbum = $conexion->query($sql);
         $titulo = $nombreAlbum->fetch_assoc();
 
-        echo "<p style='color:white;'>Nombre: " . $nombre . "</p>";
-        echo "<p style='color:white;'>Título: " . $titulo['Titulo'] . "</p>";
-        echo "<p style='color:white;'>Texto adicional: " . $extra . "</p>";
-        echo "<p style='color:white;'>Número de copias: " . $copias . "</p>";
-        echo "<p style='color:white;'>Precio total: " . $precio_total . "</p>";
+        echo "<p class='white'>Nombre: " . $nombre . "</p>";
+        echo "<p class='white'>Título: " . $titulo['Titulo'] . "</p>";
+        echo "<p class='white'>Texto adicional: " . $extra . "</p>";
+        echo "<p class='white'>Número de copias: " . $copias . "</p>";
+        echo "<p class='white'>Precio total: " . $precio_total . "</p>";
 
         if ($color == 'bn') {
             echo "<p style='color:white;'>Color: Blanco y negro</p>";

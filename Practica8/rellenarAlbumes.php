@@ -1,7 +1,7 @@
 <?php
 
 include("conexionBD.php");
-session_start();
+//session_start();
 $IdUsuario = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
 
 //TODO aun no se si hay que insertar usuarios por eso no se que poner en el where
