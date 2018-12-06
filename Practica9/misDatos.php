@@ -13,20 +13,47 @@ if (isset($_COOKIE['sesion'])) {
 </head>
 <body>
 <?php
-include('headerSinLogear.php');
+include('header.php');
 ?>
 
 <div id="background-misDatos" class="background_parallax">
+    <?php
+    if (isset($_GET['error'])) {
+
+        if ($_GET['error'] == 'user') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El usuario no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pass') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El password no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pass_repeat') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El password no es igual</h1>";
+        }
+        if ($_GET['error'] == 'old_pass') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El password antiguo no es correcto</h1>";
+        }
+        if ($_GET['error'] == 'email') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El email no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'ciudad') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>La ciudad no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'sexo') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El sexo no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'estilo') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El estilo no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pais') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El pais no existe en la BD</h1>";
+        }
+    }
+    ?>
     <section class="col-4 margin_auto padding20">
         <h2 class="text_shadow" style="color:red;">
-            <?php
-            if (isset($_GET['error'])) {
-                echo "Error en el registro";
-            }
-            ?>
         </h2>
         <h2 class="white text_shadow">Modificar mis datos</h2>
-        <form action="resRegistro.php" method="post">
+        <form enctype="multipart/form-data" action="resMisDatos.php" method="post">
             <div class="row">
                 <div style="float:left;padding: 0 4% 0 0%;" class="col-6">
                     <label>
@@ -84,18 +111,18 @@ include('headerSinLogear.php');
             <br><br>
 
             <div class="row">
-                <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
+                <div style="float:left; padding: 0 4% 0 0%;margin-bottom: 1em" class="col-6">
                     <label class="label_blanco text_shadow">Género</label>
                     <div class="select">
                         <select name="gender">
                             <?php
-                            if ($sexo == "1") {
+                            if ($sexo == "0") {
                                 echo "<option value='hombre' selected>Hombre</option><option value='mujer'>Mujer</option><option value='otro'>Otro</option>";
                             }
-                            if ($sexo == "2") {
+                            if ($sexo == "1") {
                                 echo "<option value='hombre'>Hombre</option><option value='mujer' selected>Mujer</option><option value='otro'>Otro</option>";
                             }
-                            if ($sexo == "3") {
+                            if ($sexo == "2") {
                                 echo "<option value='hombre'>Hombre</option><option value='mujer'>Mujer</option><option value='otro' selected>Otro</option>";
                             }
                             ?>
@@ -106,16 +133,16 @@ include('headerSinLogear.php');
                     <label class="label_blanco text_shadow" for="FNacimiento">Fecha nacimiento</label>
 
                     <?php
-                    echo "<input type='date' name='fecha_nacimiento' value='$fecha'>";
+                    echo "<input type='date' required name='fecha_nacimiento' value='$fecha'>";
                     ?>
                 </div>
             </div>
-            <br>
+
 
 
             <label class="label_blanco text_shadow">Estilo</label>
             <div class="select">
-                <select name="estilos">
+                <select required name="estilos">
                     <?php
                     if ($estilo == "1") {
                         echo "<option value='1' selected>Estilo responsive</option>";
@@ -130,12 +157,12 @@ include('headerSinLogear.php');
             </div>
             <br><br>
 
-            <div class="row">
+            <div  style="margin-bottom: 1em" class="row">
                 <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
                     <label>
                         <label class="label_blanco text_shadow">Ciudad</label>
                         <?php
-                        echo "<input type='text' name='ciudad' placeholder='$ciudad' style='width: 100%'></label>";
+                        echo "<input required type='text' name='ciudad' placeholder='$ciudad' style='width: 100%'></label>";
                         ?>
 
                 </div>
@@ -143,7 +170,7 @@ include('headerSinLogear.php');
                     <br id="br_none">
                     <label class="label_blanco text_shadow">País</label>
                     <div class="select">
-                        <select name="paises">
+                        <select required name="paises">
                             <?php
                             $sql = "SELECT * FROM PAISES";
                             $resultados = $conexion->query($sql);
@@ -165,6 +192,10 @@ include('headerSinLogear.php');
                 </div>
             </div>
             <br id="br_none">
+            <label id="add-computer-button" for="fileupload" class="upload_file_btn">Sube tu foto
+            </label>
+            <input id="fileupload" required type="file" multiple="multiple" name="input_foto" accept="image/*"
+                   style="visibility: hidden">
             <button type="submit" style="cursor:pointer;">Guardar cambios</button>
 
 

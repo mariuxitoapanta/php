@@ -1,4 +1,4 @@
-/*-----------------------------------------OBJETOS---------------------------------------------*/
+﻿/*-----------------------------------------OBJETOS---------------------------------------------*/
 /* La parte mas importante para imprimir las paginas */
 @page {
     size: A4 portrait;
@@ -384,6 +384,18 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 #background-añadirFoto {
+    background-image: none;
+}
+
+#background-misDatos{
+    background-image: none;
+}
+
+#background-removeUser{
+    background-image: none;
+}
+
+#background-resMisDatos{
     background-image: none;
 }
 

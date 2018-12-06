@@ -38,6 +38,7 @@ if (isset($_SESSION['sesion'])) {
             <label class="label_blanco text_shadow">País</label>
             <div class="select">
                 <select name="pais">
+                    <option value="all">Todos los países</option>
                     <?php
                     require("rellenarPaises.php");
                     ?>

@@ -17,16 +17,41 @@ include('headerSinLogear.php');
 ?>
 
 <div id="background-registro" class="background_parallax">
+    <?php
+    if (isset($_GET['error'])) {
+
+        if ($_GET['error'] == 'user') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El usuario no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pass') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El password no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pass_repeat') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El password no es igual</h1>";
+        }
+        if ($_GET['error'] == 'email') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El email no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'ciudad') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>La ciudad no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'sexo') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El sexo no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'estilo') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El estilo no tiene un formato válido</h1>";
+        }
+        if ($_GET['error'] == 'pais') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El pais no existe en la BD</h1>";
+        }
+    }
+    ?>
     <section class="col-4 margin_auto padding20">
         <h2 class="text_shadow" style="color:red;">
-            <?php
-            if (isset($_GET['error'])) {
-                echo "<h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>Error en el registro</h1>";
-            }
-            ?>
+
         </h2>
         <h2 class="white text_shadow">Registro de usuario</h2>
-        <form action="resRegistro.php" method="post">
+        <form enctype="multipart/form-data" action="resRegistro.php" method="post">
 
             <label class="label_blanco text_shadow" for="usuario">Nombre de usuario</label>
             <input type="text" name="usuario" placeholder="Usuario1" required>
@@ -53,7 +78,7 @@ include('headerSinLogear.php');
             <input type="email" name="email" placeholder="usuario1@myalbum.com" required>
             <br><br>
             <div class="row">
-                <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
+                <div style="float:left; padding: 0 4% 0 0%;margin-bottom: 1em" class="col-6">
                     <label class="label_blanco text_shadow">Género</label>
                     <div class="select">
                         <select name="gender">
@@ -67,7 +92,7 @@ include('headerSinLogear.php');
                     <input type="date" name="FNacimiento" required>
                 </div>
             </div>
-            <br>
+
             <label class="label_blanco text_shadow">Estilo</label>
             <div class="select">
                 <select name="estilos">
@@ -78,11 +103,11 @@ include('headerSinLogear.php');
                 </select>
             </div>
             <br><br>
-            <div class="row">
+            <div style="margin-bottom: 1em" class="row">
                 <div style="float:left; padding: 0 4% 0 0%;" class="col-6">
                     <label>
                         <label class="label_blanco text_shadow">Ciudad</label>
-                        <input type="text" name="ciudad" placeholder="Alicante" style="width: 100%"></label>
+                        <input type="text" required name="ciudad" placeholder="Alicante" style="width: 100%"></label>
                 </div>
                 <div style="float:left;" class="col-6">
                     <br id="br_none">
@@ -98,6 +123,10 @@ include('headerSinLogear.php');
                 </div>
             </div>
             <br id="br_none">
+            <label id="add-computer-button" for="fileupload" class="upload_file_btn">Sube tu foto
+            </label>
+            <input id="fileupload" required type="file" multiple="multiple" name="input_foto" accept="image/*"
+                   style="visibility: hidden">
             <button type="submit" style="cursor:pointer;">Registrarse</button>
         </form>
     </section>

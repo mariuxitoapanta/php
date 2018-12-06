@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include("recuerdame.php");
+
 if (!isset($_SESSION['sesion'])) {
     include('head.php');
 } else {

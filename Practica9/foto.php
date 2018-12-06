@@ -13,39 +13,46 @@ include('header.php');
 require("conexionBD.php");
 setlocale(LC_TIME, "spanish");
 
+$sql_num = "SELECT count(*) FROM FOTOS";
+$result_fotos = $conexion->query($sql_num);
+$fila_fotos = $result_fotos->fetch_assoc();
+
 $id_foto = mysqli_real_escape_string($conexion, $_GET['foto']);
-$sql = "SELECT * FROM FOTOS WHERE IdFoto = '$id_foto'";
 
-$resultados = $conexion->query($sql);
+if ((int)$fila_fotos['count(*)'] < (int)$_GET['foto']) {
+    header('Location: 404.php');
+} else {
+    $sql = "SELECT * FROM FOTOS WHERE IdFoto = '$id_foto'";
+    $resultados = $conexion->query($sql);
 
-while ($fila = $resultados->fetch_assoc()) {
-    $titulo = $fila['Titulo'];
+    while ($fila = $resultados->fetch_assoc()) {
+        $titulo = $fila['Titulo'];
 
-    $id_album = mysqli_real_escape_string($conexion, $fila['Album']);
-    $album_row = $conexion->query("SELECT Titulo,Usuario FROM albumes WHERE IdAlbum = '$id_album'");
-    $album_fetch = $album_row->fetch_assoc();
+        $id_album = mysqli_real_escape_string($conexion, $fila['Album']);
+        $album_row = $conexion->query("SELECT Titulo,Usuario FROM albumes WHERE IdAlbum = '$id_album'");
+        $album_fetch = $album_row->fetch_assoc();
 
-    $id_usuario = mysqli_real_escape_string($conexion, $album_fetch['Usuario']);
-    $usuario_row = $conexion->query("SELECT NomUsuario FROM usuarios WHERE IdUsuario = '$id_usuario'");
-    $usuario_fetch = $usuario_row->fetch_assoc();
+        $id_usuario = mysqli_real_escape_string($conexion, $album_fetch['Usuario']);
+        $usuario_row = $conexion->query("SELECT NomUsuario FROM usuarios WHERE IdUsuario = '$id_usuario'");
+        $usuario_fetch = $usuario_row->fetch_assoc();
 
-    $descrip = $fila['Descripcion'];
-    $fichero = $fila['Fichero'];
-    $fecha = $fila['Fecha'];
-    list($anyo, $mes, $dia) = explode('-', $fecha);
+        $descrip = $fila['Descripcion'];
+        $fichero = $fila['Fichero'];
+        $fecha = $fila['Fecha'];
+        list($anyo, $mes, $dia) = explode('-', $fecha);
 
-    $fecha_remp = str_replace("/", "-", $fecha);
-    $fecha_format = date("d-m-Y", strtotime($fecha_remp));
-    $mes_format = strftime("%B", strtotime($fecha_format));
-    $mes_format = strtoupper($mes_format);
+        $fecha_remp = str_replace("/", "-", $fecha);
+        $fecha_format = date("d-m-Y", strtotime($fecha_remp));
+        $mes_format = strftime("%B", strtotime($fecha_format));
+        $mes_format = strtoupper($mes_format);
 
-    $fecha_correcta = substr($mes_format, 0, 3);
-    $url = "img/" . $fichero;
-    echo "<div class=\"split-foto dcha-foto\" style=\"background-image:url('$url');\"></div>";
-}
+        $fecha_correcta = substr($mes_format, 0, 3);
+        $url = "img/" . $fichero;
+        echo "<div class=\"split-foto dcha-foto\" style=\"background-image:url('$url');\"></div>";
+    }
 
 
-echo "
+    echo "
 <section>
     <div class='split-foto izq-foto'>
         <div class='margin_info_foto'>
@@ -63,7 +70,8 @@ echo "
             <br>
             <div><i style='margin-right: 2%;' class='fa fa-user fa-lg'></i><span>$usuario_fetch[NomUsuario]</span></div>
         </div>
-    </div>"
+    </div>";
+}
 ?>
 
 

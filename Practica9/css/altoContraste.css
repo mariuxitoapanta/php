@@ -1,4 +1,4 @@
-/*-----------------------------------------OBJETOS---------------------------------------------*/
+﻿/*-----------------------------------------OBJETOS---------------------------------------------*/
 body {
     margin: 0;
     font-family: Georgia, serif;
@@ -671,6 +671,14 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 #background-misDatos{
+    background-image: none;
+}
+
+#background-removeUser{
+    background-image: none;
+}
+
+#background-resMisDatos{
     background-image: none;
 }
 

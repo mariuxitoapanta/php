@@ -13,8 +13,19 @@ include('header.php');
 ?>
 
 <section>
-    <div class="split-menu izq-menu">
+    <?php
+    require("conexionBD.php");
+    $id = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
+    $sql = "SELECT Foto FROM USUARIOS WHERE IdUsuario='$id'";
+    $resultados = $conexion->query($sql);
+    $rest_fetch = $resultados->fetch_assoc();
 
+    $url = 'url("img/' . $rest_fetch['Foto'] . '")';
+
+    echo "<div style='background-image: $url;' class='split-menu izq-menu'>";
+
+
+    ?>
     </div>
     <div id="background-menu" class="split-menu dcha-menu">
         <div style="float: right; margin-right: 2%" class="col-4">
@@ -28,8 +39,7 @@ include('header.php');
                 </select>
                 
             </div>
-            <br id="br_none">
-                <button type="submit" style="cursor:pointer;">Actualizar estilo</button>
+                <button id="update_estilo" type="submit" style="cursor:pointer;">Actualizar estilo</button>
             </form>
             
         </div>
@@ -47,11 +57,13 @@ include('header.php');
 
             <div style="line-height: 1.4em;">
                 <a class="link" href="misDatos.php">Mis datos</a><br>
-                <a class="link" href="">Darse de baja</a><br>
                 <a class="link" href="misAlbumes.php">Visualizar albumes</a><br>
                 <a class="link" href="crearAlbum.php" href="">Crear nuevo álbum</a><br>
                 <a class="link" href="solicitarAlbum.php">Solicitar álbum impreso</a><br>
                 <a class="link" href="añadirFoto.php">Añadir foto a álbum</a><br>
+                <form action="eliminar_usuario.php">
+                    <button id="delete_me" type="submit" style="cursor:pointer;">Darse de baja</button>
+                </form>
                 <p class="white text_shadow" style="font-size: .7em;"> Última conexión:
                     <?php
 
