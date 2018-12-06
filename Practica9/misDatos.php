@@ -47,6 +47,9 @@ include('header.php');
         if ($_GET['error'] == 'pais') {
             echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El pais no existe en la BD</h1>";
         }
+        if ($_GET['error'] == 'img') {
+            echo "<br><h1 style='color:white; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; background-color: #ff2856; text-align:center;'>El formato de la img no es valido</h1>";
+        }
     }
     ?>
     <section class="col-4 margin_auto padding20">
@@ -116,13 +119,13 @@ include('header.php');
                     <div class="select">
                         <select name="gender">
                             <?php
-                            if ($sexo == "0") {
+                            if ($sexo == "hombre") {
                                 echo "<option value='hombre' selected>Hombre</option><option value='mujer'>Mujer</option><option value='otro'>Otro</option>";
                             }
-                            if ($sexo == "1") {
+                            if ($sexo == "mujer") {
                                 echo "<option value='hombre'>Hombre</option><option value='mujer' selected>Mujer</option><option value='otro'>Otro</option>";
                             }
-                            if ($sexo == "2") {
+                            if ($sexo == "otro") {
                                 echo "<option value='hombre'>Hombre</option><option value='mujer'>Mujer</option><option value='otro' selected>Otro</option>";
                             }
                             ?>
@@ -194,7 +197,7 @@ include('header.php');
             <br id="br_none">
             <label id="add-computer-button" for="fileupload" class="upload_file_btn">Sube tu foto
             </label>
-            <input id="fileupload" required type="file" multiple="multiple" name="input_foto" accept="image/*"
+            <input id="fileupload" required type="file" multiple="multiple" name="input_foto" accept="image/jpeg"
                    style="visibility: hidden">
             <button type="submit" style="cursor:pointer;">Guardar cambios</button>
 

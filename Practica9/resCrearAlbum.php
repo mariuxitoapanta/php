@@ -4,6 +4,9 @@
 
     <title>Álbum creado | myAlbum</title>
     <?php
+    if (!isset($_COOKIE['sesion'])) {
+        header('Location:' . 'index.php');
+    }
     include("eleccionEstilo.php");
     ?>
 </head>
@@ -18,6 +21,7 @@ include('header.php');
         <h2 class="white text_shadow">Se ha registrado la solicitud</h2>
         <br><br>
         <?php
+        include("conexionBD.php");
         $titulo = mysqli_real_escape_string($conexion, $_POST['titulo']);
         $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
         $usuario = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
@@ -27,9 +31,9 @@ include('header.php');
         echo "<p style='color:white;'>ID Usuario: " . $usuario . "</p>";
 
 
-        include("conexionBD.php");
+        
 
-        $sql = "INSERT INTO ALBUMES(IdAlbum,Titulo,Descripcion,Usuario) VALUES ('NULL','$titulo','$descripcion','$IdUsuario')";
+        $sql = "INSERT INTO ALBUMES(IdAlbum,Titulo,Descripcion,Usuario) VALUES ('NULL','$titulo','$descripcion','$usuario')";
 
         if ($conexion->query($sql) === TRUE) {
             echo "Introducido";

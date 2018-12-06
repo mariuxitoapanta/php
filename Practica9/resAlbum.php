@@ -4,6 +4,9 @@
 
     <title>Álbum solicitado | myAlbum</title>
     <?php
+    if (!isset($_COOKIE['sesion'])) {
+        header('Location:' . 'index.php');
+    }
     include("eleccionEstilo.php");
     ?>
 </head>

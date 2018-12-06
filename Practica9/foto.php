@@ -4,6 +4,7 @@
 
     <title>Detalle foto | myAlbum</title>
     <?php
+
     include("eleccionEstilo.php");
     ?>
 </head>
@@ -12,6 +13,8 @@
 include('header.php');
 require("conexionBD.php");
 setlocale(LC_TIME, "spanish");
+
+
 
 $sql_num = "SELECT count(*) FROM FOTOS";
 $result_fotos = $conexion->query($sql_num);

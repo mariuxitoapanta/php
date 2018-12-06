@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("recuerdame.php");
+//include("recuerdame.php");
 
 if (!isset($_SESSION['sesion'])) {
     include('head.php');

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2018 a las 13:10:07
--- Versión del servidor: 10.1.36-MariaDB
--- Versión de PHP: 7.2.11
+-- Tiempo de generación: 06-12-2018 a las 19:05:44
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -148,7 +148,7 @@ CREATE TABLE `usuarios` (
   `NomUsuario` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `Clave` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `Email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `Sexo` tinyint(255) NOT NULL,
+  `Sexo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `FNacimiento` date NOT NULL,
   `Ciudad` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `Pais` int(100) NOT NULL,
@@ -162,8 +162,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`, `Estilo`) VALUES
-(1, 'usuario1', 'usuario1', 'usuario1@gmail.com', 3, '2018-11-01', 'Alicante', 1, 'foto1.png', '12:07:00', 1),
-(2, 'usuario2', 'usuario2', 'usuario2@gmail.com', 1, '2018-11-02', 'Zaragoza', 2, 'foto2.png', '12:07:00', 2);
+(1, 'usuario1', 'usuario1', 'usuario1@gmail.com', 'hombre', '2018-11-01', 'Alicante', 1, 'usuario1.jpg', '12:07:00', 1),
+(2, 'usuario2', 'usuario2', 'usuario2@gmail.com', 'hombre', '2018-11-02', 'Zaragoza', 2, 'usuario2.jpg', '12:07:00', 2),
+(3, 'usuario3', 'usuario3', 'usuario3@gmail.com', 'otro', '1111-11-11', 'Alicante', 1, 'usuario3.jpg', '00:00:00', 1);
 
 --
 -- Índices para tablas volcadas
@@ -250,7 +251,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdUsuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

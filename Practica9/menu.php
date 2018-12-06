@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 
+
     <title>Menú usuario | myAlbum</title>
     <?php
     include("eleccionEstilo.php");
@@ -9,6 +10,8 @@
 </head>
 <body>
 <?php
+
+
 include('header.php');
 ?>
 

@@ -4,6 +4,7 @@
 
     <title>Darse de baja | myAlbum</title>
     <?php
+
     include("eleccionEstilo.php");
     ?>
 </head>
@@ -12,17 +13,7 @@
 include('headerSinLogear.php');
 require("conexionBD.php");
 
-if(!isset($_SESSION['sesion'])){
-    $id_user = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
-}
 
-
-if (isset($_SESSION['sesion'])) {
-    session_destroy();
-}
-setcookie("recuerdame", " ", time() - 360);
-
-$sql = "DELETE FROM usuarios WHERE IdUsuario = $id_user";
 
 ?>
 
@@ -32,12 +23,24 @@ $sql = "DELETE FROM usuarios WHERE IdUsuario = $id_user";
         <br><br><h2 class="white text_shadow"></h2>
 
         <?php
-        if ($conexion->query($sql) === TRUE) {
-    echo "<div style='padding: 1em 1em 0.3em 1em;'><img style='    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;' src='img/sad2.png'>
-    <h1 style='color:black; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; text-align:center;'>Esperamos que vuelvas pronto!!</h1></div>";
+
+            if(isset($_SESSION['sesion'])){
+                $id_user = mysqli_real_escape_string($conexion, $_SESSION['sesion']['IdUsuario']);
+            }
+
+
+            if (isset($_SESSION['sesion'])) {
+                session_destroy();
+            }
+            setcookie("recuerdame", " ", time() - 360);
+
+            $sql = "DELETE FROM usuarios WHERE IdUsuario = $id_user";
+                if ($conexion->query($sql) === TRUE) {
+            echo "<div style='padding: 1em 1em 0.3em 1em;'><img style='display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;' src='img/sad2.png'>
+            <h1 style='color:black; text-transform: uppercase; padding: 0.3em; font-size: 1.5em; text-align:center;'>Esperamos que vuelvas pronto!!</h1></div>";
 }
 
 ?>

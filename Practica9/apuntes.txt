@@ -1,3 +1,0 @@
-Practica 9
-
-Cambiar los requerimientos en los inputs y comprobarlos en la parte del servidor
