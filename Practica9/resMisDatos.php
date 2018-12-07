@@ -4,6 +4,9 @@
     <title>Modificación de datos completado | myAlbum</title>
 
     <?php
+    if(!isset($_SESSION['sesion'])){
+        header("Location: index.php");
+    }
     include("eleccionEstilo.php");
     ?>
 </head>
@@ -38,7 +41,6 @@ include('header.php');
         $tmp_name = $_FILES["input_foto"]["tmp_name"];
         $name_img = basename($_FILES["input_foto"]["name"]);
         $fichero_subido = $usuario . ".jpg";
-        move_uploaded_file($tmp_name, "img/$fichero_subido");
 
         $old_pass = $_POST['old_password'];
         $pass = $_POST['new_password'];
@@ -103,6 +105,8 @@ include('header.php');
                 $datosCorrectos=false;
             }
             else if($datosCorrectos==true){
+                move_uploaded_file($tmp_name, "img/$fichero_subido");
+
                 $esc_usuario = mysqli_real_escape_string($conexion,$usuario);
                 $esc_pass = mysqli_real_escape_string($conexion, $pass);
                 $esc_email = mysqli_real_escape_string($conexion, $email);

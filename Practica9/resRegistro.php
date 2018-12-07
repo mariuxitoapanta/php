@@ -9,15 +9,7 @@
     ?>
 </head>
 <body>
-<?php
-include("comprobarDatosUsuario.php");
 
-
-if ($datosCorrectos == true) {
-    $sql = "INSERT INTO usuarios (NomUsuario, Clave, Email, Sexo, FNacimiento, Ciudad, Pais, Foto, Estilo)
-VALUES ('$esc_usuario', '$esc_pass', '$esc_email', '$esc_sexo', '$esc_fechaN', '$esc_ciudad', '$esc_pais', '$fichero_subido', '$esc_estilo')";
-}
-?>
 
 
 <div id="background-resRegistro" class="background_parallax">
@@ -25,6 +17,17 @@ VALUES ('$esc_usuario', '$esc_pass', '$esc_email', '$esc_sexo', '$esc_fechaN', '
         <br><br>
 
         <?php
+
+        include("comprobarDatosUsuario.php");
+
+
+        if ($datosCorrectos == true) {
+            move_uploaded_file($tmp_name, "img/$fichero_subido");
+
+            $sql = "INSERT INTO usuarios (NomUsuario, Clave, Email, Sexo, FNacimiento, Ciudad, Pais, Foto, Estilo)
+        VALUES ('$esc_usuario', '$esc_pass', '$esc_email', '$esc_sexo', '$esc_fechaN', '$esc_ciudad', '$esc_pais', '$fichero_subido', '$esc_estilo')";
+        }
+
         if ($conexion->query($sql) === TRUE) {
             echo "        <h2 class=\"white text_shadow\">Registro completado</h2>";
             echo "        <h2 class=\"white text_shadow\">Tus datos son:</h2>";

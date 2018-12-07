@@ -8,6 +8,9 @@ if (isset($_COOKIE['sesion'])) {
 <head>
     <title>Modificar mis datos | myAlbum</title>
     <?php
+    if(!isset($_SESSION['sesion'])){
+        header("Location: index.php");
+    }
     include("eleccionEstilo.php");
     ?>
 </head>
@@ -76,7 +79,7 @@ include('header.php');
                         $ciudad = $resultado_fetch['Ciudad'];
                         $pais = $resultado_fetch['Pais'];
 
-                        echo "<input type='text' name='usuario' placeholder='$nombre' required>";
+                        echo "<input type='text' name='usuario' value='$nombre' required>";
                         ?>
                 </div>
                 <div style="float:left;" class="col-6 top_none">
@@ -109,7 +112,7 @@ include('header.php');
             <label class="label_blanco text_shadow" for="email">Correo electrónico</label>
 
             <?php
-            echo "<input type='email' name='email' placeholder='$email' required>";
+            echo "<input type='email' name='email' value='$email' required>";
             ?>
             <br><br>
 
@@ -165,7 +168,7 @@ include('header.php');
                     <label>
                         <label class="label_blanco text_shadow">Ciudad</label>
                         <?php
-                        echo "<input required type='text' name='ciudad' placeholder='$ciudad' style='width: 100%'></label>";
+                        echo "<input required type='text' name='ciudad' value='$ciudad' style='width: 100%'></label>";
                         ?>
 
                 </div>

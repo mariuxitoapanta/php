@@ -25,7 +25,6 @@ if ($_FILES["input_foto"]["type"] != "image/jpeg") {
 $tmp_name = $_FILES["input_foto"]["tmp_name"];
 $name_img = basename($_FILES["input_foto"]["name"]);
 $fichero_subido = $usuario . ".jpg";
-move_uploaded_file($tmp_name, "img/$fichero_subido");
 
 $pass = $_POST['password'];
 $pass_repeat = $_POST['password_repeat'];

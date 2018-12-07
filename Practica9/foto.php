@@ -4,7 +4,9 @@
 
     <title>Detalle foto | myAlbum</title>
     <?php
-
+    if(!isset($_SESSION['sesion'])){
+        header("Location: index.php");
+    }
     include("eleccionEstilo.php");
     ?>
 </head>

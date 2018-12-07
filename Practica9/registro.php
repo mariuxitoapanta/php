@@ -3,6 +3,9 @@
 <head>
     <title>Registro usuario | myAlbum</title>
     <?php
+    if(!isset($_SESSION['sesion'])){
+        header("Location: index.php");
+    }
     include('head.php');
     ?>
 </head>
